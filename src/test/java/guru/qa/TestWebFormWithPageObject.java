@@ -11,9 +11,6 @@ public class TestWebFormWithPageObject extends TestBase {
         String userLastName = "Kuzmin";
         String userGender = "Other"; // Female , Male , Other
         String userPhone = "9876543218";
-        String userDateBirth = "3";
-        String userMonthBirth = "April";
-        String userYearBirth = "2009";
         String userSubject = "Chemistry";
         String userHobby = "Music";
         String userAddress = "Lenina 14";
