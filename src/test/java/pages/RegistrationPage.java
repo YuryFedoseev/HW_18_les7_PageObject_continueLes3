@@ -9,12 +9,12 @@ import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationPages {
-    private SelenideElement
-            firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName");
+public class RegistrationPage {
+    private final SelenideElement
+            firstNameInput = $("#firstName");
+    private final SelenideElement lastNameInput = $("#lastName");
 
-    public RegistrationPages openPage() {
+    public RegistrationPage openPage() {
         open("https://demoqa.com/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -22,62 +22,62 @@ public class RegistrationPages {
         return this;
     }
 
-    public RegistrationPages setFirstName(String value) {
+    public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value).pressTab();
 
         return this;
     }
 
-    public RegistrationPages setLastName(String value) {
+    public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value).pressTab();
 
         return this;
     }
 
-    public RegistrationPages setEmail() {
-        $("#userEmail").setValue("mail@muil.ru").pressTab();
+    public RegistrationPage setEmail(String value) {
+        $("#userEmail").setValue(value).pressTab();
 
         return this;
     }
 
-    public RegistrationPages setGender(String value) {
+    public RegistrationPage setGender(String value) {
         $(byTagAndText("Label", value)).click();
 
         return this;
     }
 
-    public RegistrationPages setPhone(String value) {
+    public RegistrationPage setPhone(String value) {
         $("#userNumber").setValue(value).click();
 
         return this;
     }
 
-    public RegistrationPages setSubdject(String value) {
+    public RegistrationPage setSubject(String value) {
         $("#subjectsInput").setValue(value).pressEnter();
 
         return this;
     }
 
-    public RegistrationPages setHobby(String value) {
+    public RegistrationPage setHobby(String value) {
         $(byTagAndText("Label", value)).click();
 
         return this;
     }
 
-    public RegistrationPages setPicture() {
-        File pictures = new File("src/test/resources/skrin/379-scaled.jpg");
+    public RegistrationPage setImage(String value) {
+        File pictures = new File(value);
         $("#uploadPicture").uploadFile(pictures);
 
         return this;
     }
 
-    public RegistrationPages setAddress(String value) {
+    public RegistrationPage setAddress(String value) {
         $("#currentAddress").setValue(value).pressTab().pressEnter();
 
         return this;
     }
 
-    public RegistrationPages setStateAndCity(String valueState, String valueCity) {
+    public RegistrationPage setStateAndCity(String valueState, String valueCity) {
         $("#state").click();
         $("#stateCity-wrapper").$(byText(valueState)).click();
         $("#city").click();
@@ -87,58 +87,63 @@ public class RegistrationPages {
         return this;
     }
 
-    public RegistrationPages setClicSubmit(){
+    public RegistrationPage setClickSubmit(){
         $("#submit").pressEnter();
 
         return this;
     }
 
     //Проверка данных
-    public RegistrationPages searchNameAndLastName(String valueName, String valueLastName){
+    public RegistrationPage checkNameAndLastName(String valueName, String valueLastName){
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueName));
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueLastName));
 
         return this;
     }
 
-    public RegistrationPages searchEmail(String values){
+    public RegistrationPage checkEmail(String values){
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(values));
 
         return this;
     }
 
-    public RegistrationPages searchGender(String values){
+    public RegistrationPage checkGender(String values){
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(values));
 
         return this;
     }
 
-    public RegistrationPages searchPhone(String value){
+    public RegistrationPage checkPhone(String value){
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
 
         return this;
     }
 
-    public RegistrationPages searchSubject(String value){
+    public RegistrationPage checkSubject(String value){
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
 
         return this;
     }
 
-    public RegistrationPages searhPictire(){
-        $x("//div[@class='table-responsive']").shouldHave(Condition.text("379-scaled.jpg"));
-
-        return this;
-    }
-
-    public RegistrationPages searchAddress(String value){
+    public RegistrationPage checkImage(String value){
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
 
         return this;
     }
 
-    public RegistrationPages searchStateAndCity(String valueState, String valueCity){
-        $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueState + " " + valueCity));
+    public RegistrationPage checkAddress(String value){
+        $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
+
+        return this;
+    }
+
+    public RegistrationPage checkState(String valueState){
+        $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueState));
+
+        return this;
+    }
+    public RegistrationPage checkCity(String valueCity){
+        $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueCity));
 
         return this;
     }
