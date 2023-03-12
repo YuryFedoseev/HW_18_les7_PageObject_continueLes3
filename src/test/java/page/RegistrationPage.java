@@ -1,4 +1,4 @@
-package pages;
+package page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -87,62 +87,69 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setClickSubmit(){
+    public RegistrationPage setClickSubmit() {
         $("#submit").pressEnter();
 
         return this;
     }
 
     //Проверка данных
-    public RegistrationPage checkNameAndLastName(String valueName, String valueLastName){
+    public RegistrationPage checkNameAndLastName(String valueName, String valueLastName) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueName));
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueLastName));
 
         return this;
     }
 
-    public RegistrationPage checkEmail(String values){
+    public RegistrationPage checkEmail(String values) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(values));
 
         return this;
     }
 
-    public RegistrationPage checkGender(String values){
+    public RegistrationPage checkGender(String values) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(values));
 
         return this;
     }
 
-    public RegistrationPage checkPhone(String value){
+    public RegistrationPage checkPhone(String value) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
 
         return this;
     }
 
-    public RegistrationPage checkSubject(String value){
+    public RegistrationPage checkSubject(String value) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
 
         return this;
     }
 
-    public RegistrationPage checkImage(String value){
+    public RegistrationPage checkHobby(String value) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
 
         return this;
     }
 
-    public RegistrationPage checkAddress(String value){
+    public RegistrationPage checkImage(String value) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
 
         return this;
     }
 
-    public RegistrationPage checkState(String valueState){
+    public RegistrationPage checkAddress(String value) {
+        $x("//div[@class='table-responsive']").shouldHave(Condition.text(value));
+
+        return this;
+    }
+
+    public RegistrationPage checkState(String valueState) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueState));
 
         return this;
     }
-    public RegistrationPage checkCity(String valueCity){
+
+    public RegistrationPage checkCity(String valueCity) {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text(valueCity));
 
         return this;
