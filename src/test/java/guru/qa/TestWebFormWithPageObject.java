@@ -53,6 +53,9 @@ public class TestWebFormWithPageObject extends TestBase {
         String userAddress = "Lenina 14";
         String userState = "Haryana";
         String userCity = "Karnal";
+        String userDateBorn = "5";
+        String userMonthBorn = "January";
+        String userYearBorn = "2000";
 
 
         registrationPages
@@ -63,6 +66,7 @@ public class TestWebFormWithPageObject extends TestBase {
                 .setGender(userGender).setPhone(userPhone)
                 .setSubdject(userSubject)
                 .setHobby(userHobby)
+                .setDateBorn(userMonthBorn, userYearBorn , userDateBorn  )
                 .setPicture()
                 .setAddress(userAddress)
                 .setStateAndCity(userState, userCity)
