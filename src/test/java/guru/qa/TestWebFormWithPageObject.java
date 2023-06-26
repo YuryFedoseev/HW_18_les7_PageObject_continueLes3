@@ -53,7 +53,7 @@ public class TestWebFormWithPageObject extends TestBase {
         String userAddress = "Lenina 14";
         String userState = "Haryana";
         String userCity = "Karnal";
-        String userDateBorn = "5";
+        String userDateBorn = "6";
         String userMonthBorn = "January";
         String userYearBorn = "2000";
 
